@@ -1,0 +1,10 @@
+---
+ - name: Copy module sample
+   hosts: redhat-new
+   tasks:
+   - name: Copy a "sudoers" file on the remote machine for editing
+     copy:
+       src: /home/ec2-user/Modules/files/abc
+       dest: /home/ec2-user/pom.xml
+#       remote_src: yes
+       validate: /usr/sbin/visudo -csf %s

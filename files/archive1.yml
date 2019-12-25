@@ -1,0 +1,8 @@
+---
+ - name: Creates a compressed archive and remove original file
+   hosts: jenkins217
+   tasks:
+   - name: Compress directory /path/to/foo/ into /path/to/foo.gz
+     archive:
+       path: ~/test-via-ansible
+       remove: yes

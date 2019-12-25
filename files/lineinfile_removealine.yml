@@ -1,0 +1,9 @@
+---
+ - name: lineinfile module examples
+   hosts: amznami
+   tasks:
+   - name: Make sure group wheel is not in the abc configuration
+     lineinfile:
+       path: ~/abc
+       state: absent
+       regexp: '^wheel'

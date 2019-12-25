@@ -1,0 +1,8 @@
+---
+ - name: Creates a compressed archive
+   hosts: jenkins217
+   tasks:
+   - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
+     archive:
+       path: ~/test-via-ansible
+       dest: ~/test-via-ansible.tgz

@@ -1,0 +1,6 @@
+---
+ - name: debug basic usgae with gather facts
+   hosts: amzn[1.2]host
+   tasks:
+   - debug:
+       msg: System {{ inventory_hostname }} has host {{ ansible_host }} and hostname as {{ ansible_hostname }}

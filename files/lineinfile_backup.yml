@@ -1,0 +1,16 @@
+---
+  - name: Examples of lineinfile
+    hosts: amzn1host
+    
+    tasks:
+    - name: "Example1: Validate if a String or line is present in the file"
+      become: yes
+      become_user: root
+      tags: example1
+      lineinfile:
+        path: main.txt
+        line: "LogLevel debug"
+        state: present
+        backup: yes
+      check_mode: yes
+      register: example1out

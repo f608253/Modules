@@ -1,0 +1,10 @@
+---
+ - name: Obtain the acl for a specific file
+   hosts: local
+   tasks:
+   - name: Obtain the ACL for a specific file
+     acl:
+       path: ~/test-via-ansible 
+     register: acl_info
+   - debug: var=acl_info.acl
+...

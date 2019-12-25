@@ -1,0 +1,20 @@
+---
+  - name: Examples of lineinfile
+    hosts: amzn2host
+    
+    tasks:
+      - name: "Example8: Find if a String or line is present in the file and add it using the regex"
+        become: yes
+        become_user: root
+        tags: example8
+        lineinfile:
+          path: /home/ec2-user/bb.props
+          # The String to Search
+          regexp: "LogLevel systeminfo1" 
+          # The String to Replace
+          line: "LogLevel systeminfo2-new"
+          state: present
+          backup: yes
+        register: example8out
+      - name: Checking the return output
+        debug: var=example8out.msg

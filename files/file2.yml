@@ -1,0 +1,11 @@
+---
+ - hosts: jenkins217
+   tasks:
+   - name: Create two hard links
+     file:
+      src: '/home/ec2-user/{{ item.src }}'
+      dest: '{{ item.dest }}'
+      state: hard
+     loop:
+      - { src: xyz, dest: zyx }
+      - { src: abc, dest: crs }

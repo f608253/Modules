@@ -1,0 +1,11 @@
+---
+ - hosts: jenkins217
+   tasks:
+   - name: Create a symbolic link
+     file:
+       src: /home/ec2-user/DBB/config.xml
+       dest: ~/hosts
+       owner: ec2-user
+       group: ec2-user
+       state: link
+       force: yes

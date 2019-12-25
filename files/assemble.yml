@@ -1,0 +1,10 @@
+---
+ - name: usage of assemble file module
+   hosts: jenkins217
+   tasks:
+   - name: Inserted provided delimiter in between each fragment
+     assemble:
+       src: /home/ec2-user/tmp
+       dest: /home/ec2-user/pom.xml_using_assemble_file_module
+       delimiter: '### START FRAGMENT ###'
+   

@@ -1,0 +1,10 @@
+---
+ - name: lineinfile module examples
+   hosts: amznami
+   tasks:
+   - name: Ensure the default Apache port is 8080
+     lineinfile:
+       path: ~/abc
+       regexp: '^Listen '
+       insertafter: '^#Listen '
+       line: Listen 8080

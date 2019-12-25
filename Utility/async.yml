@@ -1,0 +1,21 @@
+---
+ - name: async module usage
+   hosts: amzn1host
+   become: yes
+   become_user: root
+   tasks:
+   - name: Asynchronous yum task
+     yum:
+       name: httpd
+       state: latest
+       lock_timeout: 180
+     async: 1000
+     poll: 0
+     register: yum_sleeper
+
+   - name: Wait for asynchronous job to end
+     async_status:
+       jid: '{{ yum_sleeper.ansible_job_id }}'
+     register: job_result
+     until: job_result.finished
+     retries: 30

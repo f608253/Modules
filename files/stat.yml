@@ -1,0 +1,10 @@
+---
+ - name: stat module examples
+   hosts: amzn2host
+   tasks:
+   - stat:
+       path: /home/ec2-user/bb.props
+     register: st
+   - fail:
+       msg: "Whoops! file ownership has changed"
+     when: st.stat.pw_name != 'root'

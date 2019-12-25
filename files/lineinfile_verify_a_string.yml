@@ -1,0 +1,19 @@
+---
+  - name: Examples of lineinfile
+    hosts: amzn2host
+    
+    tasks:
+      - name: "Example1: Validate if a String or line is present in the file"
+        become: yes
+        become_user: root
+        tags: example1
+        lineinfile:
+          path: /home/ec2-user/bb.props
+          line: "LogLevel debug"
+          state: present
+          backup: yes
+        check_mode: yes
+        register: example1out
+      
+      - name: status
+        debug: var=example1out 

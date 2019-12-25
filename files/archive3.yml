@@ -1,0 +1,11 @@
+---
+ - name: Creates a compressed archive
+   hosts: jenkins217
+   tasks:
+   - name: Create a bz2 archive of multiple files, rooted at /path
+     archive:
+       path:
+       - /home/ec2-user
+       - /tmp/madebyec2
+       dest: /var/tmp/file.tar.bz2
+       format:  bz2

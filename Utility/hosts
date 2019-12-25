@@ -1,0 +1,13 @@
+[amznami]
+amzn1host ansible_host=172.31.15.106 ansible_user=ec2-user ansible_ssh_pass='ec2-user'
+
+[amznami2]
+amzn2host ansible_host=172.31.37.171 ansible_user=ec2-user ansible_ssh_pass='ec2-user'
+
+[local]
+ansible-core ansible_host=localhost ansible_connection=local
+
+[ec2]
+amzn1host ansible_host=172.31.15.106 ansible_user=ec2-user ansible_ssh_pass='ec2-user'
+ansible-core ansible_host=localhost ansible_connection=local
+amzn2host ansible_host=172.31.37.171 ansible_user=ec2-user ansible_ssh_pass='ec2-user'

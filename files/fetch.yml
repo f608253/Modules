@@ -1,0 +1,9 @@
+---
+ - name: Demonstrating fetch module
+   hosts: ec2
+   tasks:
+   - name: Specifying a path directly
+     fetch:
+       src: ~/.bash_profile
+       dest: /tmp/prefix-{{ inventory_hostname }}
+       flat: yes

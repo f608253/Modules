@@ -1,0 +1,10 @@
+---
+ - name: blockinfile module usage
+   hosts: jenkins217
+   tasks:
+   - name: Insert/Update "Match User" configuration block in /home/ec2-user/pom.xml
+     blockinfile:
+       path: ~/pom.xml
+       block: |
+        Match User ansible-agent
+        PasswordAuthentication no

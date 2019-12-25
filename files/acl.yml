@@ -1,0 +1,11 @@
+---
+ - name: Demo to check usage of acl file module
+   hosts: ec2
+   tasks:
+   - name: Grant user Joe read access to a file
+     acl:
+       path: ~/test-via-ansible
+       entity: ec2-user
+       etype: user
+       permissions: r
+       state: present

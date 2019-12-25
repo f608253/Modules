@@ -1,0 +1,9 @@
+---
+ - name: lineinfile module examples
+   hosts: amznami
+   tasks:
+   - name: Ensure SELinux is set to enforcing mode
+     lineinfile:
+       path: ~/abc
+       regexp: '^SELINUX='
+       line: SELINUX=enforcing

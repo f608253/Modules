@@ -1,0 +1,10 @@
+---
+ - name: test play
+   hosts: amzn2host
+   tasks:
+
+   - shell: cat /home/ec2-user/bb.props
+     register: bb_contents
+
+   - shell: echo "bb contains the word middleware url"
+     when: bb_contents.stdout.find('middlewareinventory') != -1

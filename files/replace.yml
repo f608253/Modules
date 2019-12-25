@@ -1,0 +1,6 @@
+---
+ - name: regexp and replace 
+   hosts: amzn2host
+   tasks:
+   - name: Before Ansible 2.3, option 'dest', 'destfile' or 'name' was used instead of 'path'
+     shell: "sed -i 's|https://old.name.com|https://new.name.com|g' /home/ec2-user/bb.props"

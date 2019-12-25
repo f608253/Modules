@@ -1,0 +1,10 @@
+---
+ - name: Find Module explanation and usages
+   hosts: jenkins217
+   tasks:
+   - name: Find files in /home/ec2-user
+     find:
+       path: /home/ec2-user
+       age: 1d
+     register: find
+   - debug: var=find.files

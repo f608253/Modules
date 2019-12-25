@@ -1,0 +1,13 @@
+---
+ - name: Copy module sample
+   hosts: redhat-new
+   tasks:
+   - name: Copy file with owner and permissions
+     copy:
+       src: /home/ec2-user/Modules/files/copy.yml
+       dest: /home/ec2-user/copy.yml
+       owner: ec2-user
+       group: ec2-user
+       mode: '0644'
+     register: copy_module_return_values
+   - debug: var=copy_module_return_values

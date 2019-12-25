@@ -1,0 +1,24 @@
+---
+ - name: stat file module explained further
+   hosts: amzn2host
+   tasks:
+   - stat:
+       path: /home/ec2-user/bb.props
+     register: sym
+
+   - debug:
+       msg: "Path isn't defined (path doesn't exist)"
+     when: sym.stat.islnk is not defined
+
+   - debug:
+       msg: "Path is defined (path must exist)"
+     when: sym.stat.islnk is defined
+
+   - debug:
+       msg: "Path exists and is a symlink"
+     when: sym.stat.islnk is defined and sym.stat.islnk
+
+   - debug:
+       msg: "Path exists and isn't a symlink"
+     when: sym.stat.islnk is defined and sym.stat.islnk == False
+

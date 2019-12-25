@@ -1,0 +1,10 @@
+---
+ - name: stat module examples
+   hosts: amzn2host
+   tasks:
+   - stat:
+       path: /home/ec2-user
+     register: p
+   - debug:
+       msg: "Path exists and is a directory"
+     when: p.stat.isdir is defined and p.stat.isdir

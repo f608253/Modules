@@ -1,0 +1,11 @@
+---
+ - name: Tempfile file module gudiya
+   hosts: amzn1host,amzn2host
+   tasks:
+   - name: create temporary build directory
+     tempfile:
+       state: directory
+       suffix: builds
+     register: temp
+   - name: checking if temp file created
+     debug: var=temp

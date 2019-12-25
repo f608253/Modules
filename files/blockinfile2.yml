@@ -1,0 +1,14 @@
+---
+ - name: blockinfile module usage and validate
+   hosts: jenkins217
+   tasks:
+   - name: Add mappings to ~/hosts
+     blockinfile:
+       path: ~/hosts
+       block: |
+         {{ item.ip }} {{ item.name }}
+       marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
+     loop:
+       - { name: host1, ip: 10.10.1.10 }
+       - { name: host2, ip: 10.10.1.11 }
+       - { name: host3, ip: 10.10.1.12 }

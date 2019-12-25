@@ -1,0 +1,17 @@
+---
+  - name: Examples of lineinfile
+    hosts: amzn2host
+    
+    tasks:
+      - name: "Example1: Validate if a String or line is present in the file"
+        become: yes
+        become_user: root
+        tags: lineinfileexample
+        lineinfile:
+          path: /home/ec2-user/bb.props
+          insertafter: "^Listen [0-9]+" 
+          line: "Listen 445"
+          state: present  
+        register: lineinfileexample
+      - name: checking the module message status
+        debug: var=lineinfileexample.msg
